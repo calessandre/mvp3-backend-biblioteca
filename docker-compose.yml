@@ -1,0 +1,23 @@
+version: '3'
+
+networks:
+  plnt_rede:
+    driver: bridge
+
+services:
+  img-backend-biblioteca:
+    build: '.'
+    container_name: cntn-backend-biblioteca
+    ports:
+      - 5001:5001
+    networks:
+      - plnt_rede
+    
+  img-backend-planta:
+    build: '../mvp3-backend-planta'
+    container_name: cntn-backend-planta
+    ports:
+      - 5000:5000
+    networks:
+      - plnt_rede
+      
